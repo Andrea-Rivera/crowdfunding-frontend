@@ -1,5 +1,5 @@
 import { allProjects } from "../data";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard/ProjectCard";
 import "./HomePage.css"
 import getProjects from "../../api/get-projects";
 

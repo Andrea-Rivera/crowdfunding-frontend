@@ -7,7 +7,7 @@ import HomePage from './assets/pages/HomePage';
 import ProjectPage from './assets/pages/ProjectPage';
 
 //import Components
-import NavBar from './assets/components/NavBar';
+import NavBar from './assets/components/Navbar/NavBar';
 
 const router =createBrowserRouter([
   {
