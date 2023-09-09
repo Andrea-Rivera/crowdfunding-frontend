@@ -3,10 +3,10 @@ import "./ProjectCard.css";
 
 const ProjectCard = (props) => {
 const {projectData} = props;
-
+const projectLink = `project/${projectData.id}`;
 return(
     <div className="project-card">
-        <Link to ="/project">
+        <Link to={projectLink}>
             <h3>{projectData.title}</h3>
             <img src={projectData.image}/>
              <p>{projectData.description}</p>

@@ -16,7 +16,7 @@
 }
 
 .home,
-.project{
+.login{
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -57,7 +57,7 @@
     }
 
     .home,
-    .project{
+    .login{
         color:white;
         text-align: center;
         padding: 32px;
