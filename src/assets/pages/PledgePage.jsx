@@ -1,4 +1,4 @@
-import CreatePledge from "../components/PledgeForm/pledgeForm";
+import CreatePledge from "../components/PledgeForm/PledgeForm";
 
 function PledgePage() {
     return(
