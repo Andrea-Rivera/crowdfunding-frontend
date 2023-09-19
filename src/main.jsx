@@ -11,6 +11,7 @@ import CreateProject from './assets/components/ProjectForm/ProjectForm';
 
 //import Components
 import NavBar from './assets/components/Navbar/NavBar';
+import { AuthProvider } from './assets/components/AuthProvider';
 
 const router =createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router =createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <AuthProvider>
   <RouterProvider router={router} />
+  </AuthProvider>
   </React.StrictMode>,
 )

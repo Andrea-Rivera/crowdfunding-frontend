@@ -1,22 +1,13 @@
-async function postProject() {
+async function postProject(projectData) {
     const url = `${import.meta.env.VITE_API_URL}/projects/`;
     const token =window.localStorage.getItem("token")
     const response = await fetch(url, {
         method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
         headers: {
             "Content-Type": "application/json",
-            "Authentication":`Token ${token}`
+            "Authorization":`Token ${token}`
         },
-        body: JSON.stringify({
-            title: '',
-            description: '',
-            goal: 0,
-            image:'',
-            is_open:false,
-            date_created:'',
-            owner: ''
-
-        }),
+        body: JSON.stringify(projectData),
     });
     console.log(response)
 

@@ -1,0 +1,20 @@
+import { createContext, useState } from "react";
+
+export const AuthContext= createContext();
+
+export const AuthProvider = (props) =>{
+// Using a object for the state here,
+// this way we can add more properties to the state later on like user id.
+const [auth, setAuth] =useState({
+    // Here we initialize the context with the token from local 
+    //storage, thisway if the user refreshes the page we can still 
+    //have the token in memory.
+    token:window.localStorage.getItem("token"),
+});
+return (
+<AuthContext.Provider value={{ auth, setAuth }}>
+    {props.children}    
+</AuthContext.Provider>  
+);
+};
+

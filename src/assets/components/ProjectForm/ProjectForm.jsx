@@ -85,17 +85,9 @@ function CreateProject(){
         />
       </div>
       <div>
-        <label htmlFor='is_open'>Is Open</label>
-        <input
-          type='checkbox'
-          id='is_open'
-          onChange={handleChecked}
-        />
-      </div>
-      <div>
         <label htmlFor="date_created">Date Created</label>
         <input 
-          type="text" 
+          type="date" 
           id="date_created" 
           placeholder='Enter date' 
           onChange={handleChange} 
