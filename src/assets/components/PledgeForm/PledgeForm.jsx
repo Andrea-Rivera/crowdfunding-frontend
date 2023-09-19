@@ -9,7 +9,7 @@ function CreatePledge(props) {
     project: props.projectId,
     amount: 0,
     comment: '',
-    supporter: 0
+
   })
 
   const handleChange = (e) => {
@@ -57,14 +57,7 @@ function CreatePledge(props) {
           onChange={handleChange} 
         />
       </div>
-      <div>
-        <label htmlFor='supporter'>Supporter</label>
-        <input
-          type="text" 
-          id='supporter'
-          onChange={handleChange}
-        />
-      </div>
+
       <input type="submit" value=" Create Pledge" />
     </form>
   )

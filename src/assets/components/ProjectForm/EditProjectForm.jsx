@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import postProject from '../../../api/post-project';
 
-function CreateProject(){
+function EditProject(){
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [projectData, setProjectData] = useState({
@@ -23,12 +23,6 @@ function CreateProject(){
     })
   }
 
-  const handleChecked = (e) => {
-    setProjectData({
-      ...projectData,
-      [e.target.id]: e.target.checked
-    })
-  }
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -103,7 +97,7 @@ function CreateProject(){
         />
       </div>
 
-      <input type="submit" value="Create Project" />
+      <input type="submit" value="Edit Project" />
     </form>
   )
 
@@ -111,6 +105,6 @@ function CreateProject(){
 
 
 }
-export default CreateProject 
+export default EditProject 
 
 

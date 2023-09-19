@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import useProject from "../../hooks/use-project";
+import CreatePledge from "../components/PledgeForm/pledgeForm";
+umport 
 
 function ProjectPage() {
     const { id } = useParams();
@@ -25,11 +27,14 @@ function ProjectPage() {
                 {project.pledges.map((pledgeData, key) => {
                     return (
                         <li key={key}>
-                            {pledgeData.amount} from {pledgeData.supporter}
+                            {pledgeData.amount} 
+                            {/* from {pledgeData.supporter} */}
                         </li>
                     );
                 })}
             </ul>
+
+<CreatePledge projectId={id}/>
         </div>
     );
 }

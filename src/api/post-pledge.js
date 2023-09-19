@@ -5,13 +5,13 @@ async function postPledge(props) {
         method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
         headers: {
             "Content-Type": "application/json",
-            "Authentication":`Token ${token}`
+            "Authorization":`Token ${token}`
         },
         body: JSON.stringify({
             project: props.projectId,
             amount: 0,
             comment: '',
-            supporter: ''
+            supporter: 0
         }),
     });
     console.log(response)
