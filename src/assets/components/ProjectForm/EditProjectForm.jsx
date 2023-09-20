@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import postProject from '../../../api/post-project';
+import editProject from '../../../api/put-project';
 
 function EditProject(){
   const navigate = useNavigate()
@@ -49,7 +49,9 @@ function EditProject(){
           type="text" 
           id="title" 
           placeholder='Enter title' 
+          defaultValue={projectData.title}
           onChange={handleChange} 
+        
         />
       </div>
       <div>
