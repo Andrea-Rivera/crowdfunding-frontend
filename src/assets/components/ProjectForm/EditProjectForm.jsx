@@ -1,47 +1,48 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import editProject from '../../../api/put-project';
+import { useNavigate , useParams} from 'react-router-dom'
+import putProject from '../../../api/put-project';
+import useProject from "../../../hooks/use-project";
 
 function EditProject(){
-  const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
-  const [projectData, setProjectData] = useState({
+    const { id } = useParams();
+    const navigate = useNavigate()
+    const { project, isLoading, error, setProject } = useProject(id);
 
-    title: '',
-    description: '',
-    goal: 0,
-    image:'',
-    is_open:false,
-    date_created:'',
-    owner: ''
-  })
+
+if (isLoading) {
+    return (<p>loading...</p>)
+}
+
+if (error) {
+    return (<p>{error.message}</p>)
+}
+
+// console.log(project.date_created)
 
   const handleChange = (e) => {
-    setProjectData({
-      ...projectData, 
+    setProject({
+      ...project, 
       [e.target.id]: e.target.value
     })
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    setIsLoading(true)
 
-    postProject(projectData)
+
+    putProject(project)
       .then(() => {
-        navigate(0)
+        navigate(`/project/${project.id}`);
       })
       .catch(() => {
-        setIsLoading(false)
+ 
       })
   }
 
-  if(isLoading) {
-    return <p>Loading...</p>
-  }
+
 
   return (
-    // <div>hello</div>
+
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Title</label>
@@ -49,7 +50,7 @@ function EditProject(){
           type="text" 
           id="title" 
           placeholder='Enter title' 
-          defaultValue={projectData.title}
+          value = {project.title}
           onChange={handleChange} 
         
         />
@@ -60,6 +61,7 @@ function EditProject(){
           type="text" 
           id="description" 
           placeholder='Enter a description' 
+          value = {project.description}
           onChange={handleChange} 
         />
       </div>
@@ -69,6 +71,7 @@ function EditProject(){
           type="text" 
           id="goal" 
           placeholder='Enter the goal of the project' 
+          value = {project.goal}
           onChange={handleChange} 
         />
       </div>
@@ -77,6 +80,7 @@ function EditProject(){
         <input
           type="text" 
           id='image'
+          value = {project.image}
           onChange={handleChange}
         />
       </div>
@@ -86,6 +90,7 @@ function EditProject(){
           type="date" 
           id="date_created" 
           placeholder='Enter date' 
+          value = {project.date_created.split("T")[0]}
           onChange={handleChange} 
         />
       </div>
@@ -95,6 +100,7 @@ function EditProject(){
           type="text" 
           id="owner" 
           placeholder='Enter owner' 
+          value = {project.owner}
           onChange={handleChange} 
         />
       </div>

@@ -29,7 +29,7 @@ function CreateProject(){
 
     postProject(projectData)
       .then(() => {
-        navigate(0)
+        navigate("/");
       })
       .catch(() => {
         setIsLoading(false)

@@ -23,6 +23,7 @@ async function postProject(projectData) {
     }
 
     return await response.json();
+
 }
 
 export default postProject;

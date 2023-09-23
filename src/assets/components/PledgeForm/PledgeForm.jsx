@@ -7,7 +7,7 @@ function CreatePledge(props) {
   const [isLoading, setIsLoading] = useState(false)
   const [pledgeData, setPledgeData] = useState({
     project: props.projectId,
-    amount: 0,
+    amount: '',
     comment: '',
 
   })
@@ -40,11 +40,11 @@ function CreatePledge(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="amount">Amount</label>
+        <label htmlFor="amount">Donation to Support our Projects:</label>
         <input 
           type="text" 
           id="amount" 
-          placeholder='Enter the amount' 
+          placeholder='Enter the number amount' 
           onChange={handleChange} 
         />
       </div>

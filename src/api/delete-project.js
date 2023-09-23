@@ -1,14 +1,13 @@
-async function putProject(project) {
-    const url = `${import.meta.env.VITE_API_URL}/projects/${project.id}/`;
+async function deleteProject(projectData) {
+    const url = `${import.meta.env.VITE_API_URL}/projects/${projectId}`;
     const token =window.localStorage.getItem("token")
-
     const response = await fetch(url, {
-        method: "PUT", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
+        method: "DELETE", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
         headers: {
             "Content-Type": "application/json",
             "Authorization":`Token ${token}`
         },
-        body: JSON.stringify(project),
+        body: JSON.stringify(projectData),
     });
     console.log(response)
 
@@ -24,6 +23,7 @@ async function putProject(project) {
     }
 
     return await response.json();
+
 }
 
-export default putProject;
+export default deleteProject;
