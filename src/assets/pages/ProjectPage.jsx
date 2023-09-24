@@ -3,6 +3,7 @@ import useProject from "../../hooks/use-project";
 import CreatePledge from "../components/PledgeForm/CreatePledgeForm";
 import deleteProject from "../../api/delete-project";
 import { useNavigate } from 'react-router-dom'
+import "./ProjectPage.css"
 
 
 
@@ -40,13 +41,16 @@ function ProjectPage() {
 
     return (
         <div>
+            <section className="projectList">
             <h2>{project.title}</h2>
             <button  onClick={handleEditSubmit}>Edit Project</button>
 <button onClick={handleDeleteSubmit} >Delete Project</button>
             <h3>Created at: {project.date_created.split("T")[0]}</h3>
             <h3>{`Status: ${project.is_open}`}</h3>
             <h3>Description: {project.description}</h3>
-
+            
+            </section>
+            <section className="plegeList">
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => {
@@ -58,10 +62,12 @@ function ProjectPage() {
                     );
                 })}
             </ul>
+            </section>
 
 
-
+<section className="createPledge">
 <CreatePledge projectId={id}/>
+</section>
 
 
 
