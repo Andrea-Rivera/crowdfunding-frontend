@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useProject from "../../hooks/use-project";
-import CreatePledge from "../components/PledgeForm/pledgeForm";
+import CreatePledge from "../components/PledgeForm/CreatePledgeForm";
+import deleteProject from "../../api/delete-project";
 import { useNavigate } from 'react-router-dom'
 
 
@@ -24,15 +25,24 @@ function ProjectPage() {
         navigate(`/projectsEdit/${id}`);
      }
 
-    const handleDeleteSubmit = (ev) => {
-       alert("You will delete your project")
-       ev.preventDefault();
-       navigate("/");
+    const handleDeleteSubmit = () => {
+ 
+        deleteProject(project)
+        .then(() => {
+          navigate(`/project/${project.id}`);
+        })
+        .catch(() => {
+            navigate(`/`);
+        })
     }
+      
+    
 
     return (
         <div>
             <h2>{project.title}</h2>
+            <button  onClick={handleEditSubmit}>Edit Project</button>
+<button onClick={handleDeleteSubmit} >Delete Project</button>
             <h3>Created at: {project.date_created.split("T")[0]}</h3>
             <h3>{`Status: ${project.is_open}`}</h3>
             <h3>Description: {project.description}</h3>
@@ -49,9 +59,11 @@ function ProjectPage() {
                 })}
             </ul>
 
+
+
 <CreatePledge projectId={id}/>
-<button  onClick={handleEditSubmit}>Edit</button>
-<button onClick={handleDeleteSubmit} >Delete</button>
+
+
 
 </div>
     );

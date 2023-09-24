@@ -15,8 +15,9 @@
 }
 
 .home,
-.login
-.pledge
+.signup,
+.login,
+.pledge,
 .project{
     text-decoration: none;
     color: white;
@@ -57,10 +58,10 @@
     }
 
     .home,
+    .signup,
     .login,
     .pledge,
-    .project
-    {
+    .project{
         color:white;
         text-align: center;
         padding: 32px;

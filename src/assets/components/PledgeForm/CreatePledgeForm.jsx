@@ -40,6 +40,7 @@ function CreatePledge(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <h2>Create a Plege</h2>
         <label htmlFor="amount">Donation to Support our Projects:</label>
         <input 
           type="text" 

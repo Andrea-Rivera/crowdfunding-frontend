@@ -22,6 +22,7 @@ const NavBar = () =>
         <ul className={isMobile ? "nav-links-mobile":"nav-links"}
 onClick = {()=>  setIsMobile(false)}>
             <Link to="/" className="home"> <li>Home</li></Link>
+            <Link to="/signup" className="signup"> <li>SignUp</li></Link>
             <Link to="/projects" className="project"><li>Create Project</li></Link>
             {auth.token ? (
                 <Link to="/" className="login" onClick={handleLogout}>
