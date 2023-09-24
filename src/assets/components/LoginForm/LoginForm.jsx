@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import postLogin from "../../../api/post-login";
 import { useAuth } from "../../../hooks/use-auth";
+import "./LoginForm.css"
+import Button from "../Buttton/Button";
 
 
 function LoginForm() {
@@ -59,10 +61,12 @@ function LoginForm() {
                 placeholder="Password"
                 onChange={handleChange} />      
         </div>
-        <button type="submit" onClick={handleSubmit}>Login</button>
+        <Button text={"Login"} btnClass = "btn-info "  onClick={handleSubmit}/>
+      
        
     </form> 
-    <button  onClick={handleSignUp}>Sign Up</button>
+    <p>Do not have account? Please, Sign Up</p>
+    <Button text={"Sign Up"} btnClass = "btn-info "  onClick={handleSignUp}/>
    
 </>
      )

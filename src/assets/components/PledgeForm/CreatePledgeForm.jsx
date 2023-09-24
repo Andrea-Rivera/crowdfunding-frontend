@@ -45,7 +45,7 @@ function CreatePledge(props) {
         <input 
           type="text" 
           id="amount" 
-          placeholder='Enter the number amount' 
+          placeholder='Enter amount'
           onChange={handleChange} 
         />
       </div>

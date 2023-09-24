@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(220, 228, 231);
+  
+}
+
+
+.loginPage{
+    padding:20px;
+}
+
+button{
+    margin: 10px 0 ;
+}
