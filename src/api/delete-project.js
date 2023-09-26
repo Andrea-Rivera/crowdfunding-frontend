@@ -7,7 +7,7 @@ async function deleteProject(project) {
             "Content-Type": "application/json",
             "Authorization":`Token ${token}`
         },
-        body: JSON.stringify(project),
+      
     });
     console.log(response)
 
