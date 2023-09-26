@@ -6,7 +6,7 @@ function CreatePledge(props) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [pledgeData, setPledgeData] = useState({
-    project: props.projectId,
+    pledges: props.projectId,
     amount: '',
     comment: '',
 
