@@ -6,7 +6,7 @@ function CreatePledge(props) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [pledgeData, setPledgeData] = useState({
-    pledges: props.projectId,
+    project: props.projectId,
     amount: '',
     comment: '',
 
@@ -45,7 +45,7 @@ function CreatePledge(props) {
         <input 
           type="text" 
           id="amount" 
-          placeholder='Enter amount'
+          placeholder='Enter amount' AUD
           onChange={handleChange} 
         />
       </div>
