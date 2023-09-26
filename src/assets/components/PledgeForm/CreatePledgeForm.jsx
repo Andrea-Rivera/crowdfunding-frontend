@@ -26,7 +26,7 @@ function CreatePledge(props) {
 
     postPledge(pledgeData)
       .then(() => {
-        navigate("/");
+        navigate(0);
       })
       .catch(() => {
         setIsLoading(false)
@@ -45,7 +45,7 @@ function CreatePledge(props) {
         <input 
           type="text" 
           id="amount" 
-          placeholder='Enter amount' AUD
+          placeholder='Enter amount' 
           onChange={handleChange} 
         />
       </div>
