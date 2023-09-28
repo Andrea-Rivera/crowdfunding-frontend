@@ -75,7 +75,7 @@ function ProjectPage() {
                         <li key={key}>
                           Amount:  {pledgeData.amount} 
                             {/* from {pledgeData.supporter} */}
-                            <Button  text={"Delete"} btnClass = "btn-info "  onClick={()=>handleDeletePledge(pledgeData)} />
+                            <Button  text={"Delete Pledge"} btnClass = "btn-info "  onClick={()=>handleDeletePledge(pledgeData)} />
                         </li>
                     );
                 })}
