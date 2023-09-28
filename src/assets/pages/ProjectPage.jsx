@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useProject from "../../hooks/use-project";
 import CreatePledge from "../components/PledgeForm/CreatePledgeForm";
 import deleteProject from "../../api/delete-project";
+import deletePledge from "../../api/delete-pledge";
 import { useNavigate } from 'react-router-dom'
 import Button from "../components/Buttton/Button";
 import "./ProjectPage.css"
@@ -37,6 +38,16 @@ function ProjectPage() {
             navigate(`/`);
         })
     }
+
+    const handleDeletePledge = ()=>{
+        deletePledge(pledgeData)
+        .then(() => {
+          navigate(`/project/${project.id}`);
+        })
+        .catch(() => {
+            navigate(`/`);
+        })
+    }
       
     
 
@@ -59,6 +70,7 @@ function ProjectPage() {
                         <li key={key}>
                           Amount:  {pledgeData.amount} 
                             {/* from {pledgeData.supporter} */}
+                            <Button  text={"Delete"} btnClass = "btn-info "  onClick={handleDeletePledge} />
                         </li>
                     );
                 })}
