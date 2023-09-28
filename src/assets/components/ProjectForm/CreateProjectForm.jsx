@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import postProject from '../../../api/post-project';
+import Button from '../Buttton/Button';
+import "./CreateProjectForm.css"
 
 function CreateProject(){
   const navigate = useNavigate()
@@ -41,9 +43,9 @@ function CreateProject(){
   }
 
   return (
-    // <div>hello</div>
+<div className="create-project">
     <form onSubmit={handleSubmit}>
-      <div>
+      <div >
         <label htmlFor="title">Title</label>
         <input 
           type="text" 
@@ -97,8 +99,9 @@ function CreateProject(){
         />
       </div>
 
-      <input type="submit" value="Create Project" />
+      <Button text={"Create Project"} btnClass = "btn-info "  onClick={handleSubmit}/>
     </form>
+    </div>
   )
 
 

@@ -1,6 +1,8 @@
 import { useNavigate , useParams} from 'react-router-dom'
 import putProject from '../../../api/put-project';
 import useProject from "../../../hooks/use-project";
+import Button from '../Buttton/Button';
+import "./EditProjectForm.css"
 
 function EditProject(){
     const { id } = useParams();
@@ -42,7 +44,8 @@ if (error) {
 
 
   return (
-
+    <div className='projectEdit'>
+<h1>Edit Project</h1>
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Title</label>
@@ -105,12 +108,10 @@ if (error) {
         />
       </div>
 
-      <input type="submit" value="Edit Project" />
+      <Button text={"Edit Project"} btnClass = "btn-info "  onClick={handleSubmit}/>
     </form>
+    </div>
   )
-
-
-
 
 }
 export default EditProject 

@@ -88,7 +88,7 @@ function ProjectPage() {
                 
                 </>
                 ) : (
-                <p>Please Log In</p>
+                <p className="error-permission">Please Log In to see and modify projects and pledges.</p>
                 )} 
            
 
