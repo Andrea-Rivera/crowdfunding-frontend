@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import postPledge from '../../../api/post-pledge';
+import Button from '../Buttton/Button';
 
 function CreatePledge(props) {
   const navigate = useNavigate()
@@ -40,7 +41,7 @@ function CreatePledge(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h2>Create a Plege</h2>
+        <h2>Create a Pledge</h2>
         <label htmlFor="amount">Donation to Support our Projects:</label>
         <input 
           type="text" 
@@ -59,7 +60,8 @@ function CreatePledge(props) {
         />
       </div>
 
-      <input type="submit" value=" Create Pledge" />
+      {/* <input type="submit" value=" Create Pledge" /> */}
+      <Button  text={"Create Pledge"} btnClass = "btn-info "  onClick={handleSubmit} />
     </form>
   )
 }
