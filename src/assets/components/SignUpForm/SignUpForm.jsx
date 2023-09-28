@@ -4,77 +4,75 @@ import postSignUp from "../../../api/post-signup";
 import { useAuth } from "../../../hooks/use-auth";
 import Button from "../Buttton/Button";
 
+function SignUpForm() {
+  const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
 
-function SignUpForm(){
-    const navigate = useNavigate();
-    const {auth, setAuth} = useAuth();
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
 
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
-        email:""
-    });
-
-    const handleChange = (event) => {
-        const { id, value } = event.target;
-        setCredentials(() => ({
-            [id]: value,
-        }));
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setCredentials(() => ({
+        ...credentials,
+      [id]: value,
+    }));
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(credentials)
+    if (credentials.username && credentials.password && credentials.email) {
+      postSignUp(
+        credentials.username,
+        credentials.password,
+        credentials.email
+      ).then((response) => {
+        window.localStorage.setItem("token", response.token);
+        setAuth({
+          token: response.token,
+        });
+        navigate("/");
+      });
     }
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (credentials.username && credentials.password && credentials.email)  {
-          postSignUp(
-                credentials.username,
-                credentials.password,
-                credentials.email,
-                ).then((response) => {
-                    window.localStorage.setItem("token", response.token);
-                    setAuth({
-                        token: response.token,
-                    });
-                    navigate("/");
-                });
-        }
-    };
+  };
 
-
-
-    return (
-<>
-    <form>
+  return (
+    <>
+      <form>
         <div>
-                <label htmlFor="username">Username:</label>
-                <input 
-                type="text" 
-                id="username" 
-                placeholder="Enter username"
-                onChange={handleChange}/>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter username"
+            onChange={handleChange}
+          />
         </div>
         <div>
-            <label htmlFor="password">Password:</label>
-            <input 
-                type="password" 
-                id="password" 
-                placeholder="Password"
-                onChange={handleChange} />      
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
         </div>
         <div>
-            <label htmlFor="password">Email:</label>
-            <input 
-                type="email" 
-                id="email" 
-                placeholder="Email"
-                onChange={handleChange} />      
+          <label htmlFor="password">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
         </div>
-        <Button text={"Sign Up"} btnClass = "btn-info "  onClick={handleSubmit}/>
-      
-       
-    </form> 
+        <Button text={"Sign Up"} btnClass="btn-info " onClick={handleSubmit} />
+      </form>
+    </>
+  );
+}
 
-</>
-     )
-    }
-  
-
-export default SignUpForm 
+export default SignUpForm;
