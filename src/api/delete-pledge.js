@@ -22,7 +22,7 @@ async function deletePledge(pledgeData) {
         throw new Error(errorMessage);
     }
 
-    return await response.json();
+    return;
 
 }
 

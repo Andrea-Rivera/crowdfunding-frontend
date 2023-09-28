@@ -26,7 +26,7 @@ function CreatePledge(props) {
 
     postPledge(pledgeData)
       .then(() => {
-        navigate(`/project/${project.id}`);
+        navigate(0);
       })
       .catch(() => {
         setIsLoading(false)

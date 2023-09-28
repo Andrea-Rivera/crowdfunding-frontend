@@ -39,12 +39,13 @@ function ProjectPage() {
         })
     }
 
-    const handleDeletePledge = ()=>{
+    const handleDeletePledge = (pledgeData)=>{
         deletePledge(pledgeData)
         .then(() => {
-          navigate(`/project/${project.id}`);
+          navigate(0);
         })
-        .catch(() => {
+        .catch((e) => {
+            console.log(e)
             navigate(`/`);
         })
     }
@@ -70,7 +71,7 @@ function ProjectPage() {
                         <li key={key}>
                           Amount:  {pledgeData.amount} 
                             {/* from {pledgeData.supporter} */}
-                            <Button  text={"Delete"} btnClass = "btn-info "  onClick={handleDeletePledge} />
+                            <Button  text={"Delete"} btnClass = "btn-info "  onClick={()=>handleDeletePledge(pledgeData)} />
                         </li>
                     );
                 })}
