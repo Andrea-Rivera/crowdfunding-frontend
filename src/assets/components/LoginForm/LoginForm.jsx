@@ -10,7 +10,8 @@ function LoginForm() {
     const navigate = useNavigate();
     const {auth, setAuth} = useAuth();
 
-    const [credentials, setCredentials] = useState({
+    const [credentials, setCredentials] = useState
+    ({
         username: "admin",
         password: "NIdiacampitos04",
     });
