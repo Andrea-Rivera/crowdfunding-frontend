@@ -11,8 +11,8 @@ function LoginForm() {
     const {auth, setAuth} = useAuth();
 
     const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
+        username: "admin",
+        password: "NIdiacampitos04",
     });
 
     const handleChange = (event) => {
