@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import postSignUp from "../../../api/post-signup";
 import postLogin from "../../../api/post-login";
 import Button from "../Buttton/Button";
+import "./SignUpForm.css"
 
 function SignUpForm() {
   const navigate = useNavigate();
