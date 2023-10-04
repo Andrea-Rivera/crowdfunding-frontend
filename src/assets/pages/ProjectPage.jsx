@@ -5,7 +5,6 @@ import deleteProject from "../../api/delete-project";
 import deletePledge from "../../api/delete-pledge";
 import { useNavigate } from 'react-router-dom'
 import Button from "../components/Buttton/Button";
-import { useAuth } from "../../hooks/use-auth";
 import "./ProjectPage.css"
 
 
@@ -14,7 +13,7 @@ function ProjectPage() {
     const { id } = useParams();
     const navigate = useNavigate()
     const { project, isLoading, error } = useProject(id);
-    const {auth, setAuth} = useAuth();
+
 
     console.log(isLoading)
     
@@ -56,9 +55,7 @@ function ProjectPage() {
 
     return (
         <div>
-            {auth.token ? (
-                   <>
-                <section className="projectList">
+            <section className="projectList">
             <h2>{project.title}</h2>
             <Button text={"Edit Project"} btnClass = "btn-info "  onClick={handleEditSubmit}/>
             <Button text={"Delete Project"} btnClass = "btn-info "  onClick={handleDeleteSubmit}/>
@@ -85,18 +82,6 @@ function ProjectPage() {
 
 <CreatePledge projectId={id}/>
 </section>
-                
-                </>
-                ) : (
-                <p className="error-permission">Please Log In to see and modify projects and pledges.</p>
-                )} 
-           
-
-
-
-
-
-
 </div>
     );
 }
