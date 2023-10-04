@@ -19,12 +19,6 @@ of money can be donated to reach our goal as an incentive to keep enhancing our 
 * [x] Each project will have the images provided by the user that will be adapted to the template.
 
 
-## Colour Scheme
-* Colors: #264653, #2a9d8f,#e9c46a,#f4a261,#e76f51 
-* Link: (https://coolors.co/palettes/trending)
-
-![Colour Scheme](crowdfounding/crowdfounding/static/images/colour_scheme.png)
-
 ## Fonts
 * Header Fonts: font-family: 'Tektur', cursive;
 * Body Fonts: font-family: 'Roboto', sans-serif;
@@ -70,8 +64,8 @@ Deployed Back-end Project: [Deployed website](https://launchmybusiness.fly.dev)
 <br /> 
 | GET | pledges/ | Return all pledges | N/A | 200 | N/A |
 <br /> 
-| POST | pledges/ | Create a new pledge | pledge object | 201 | User must be logged in or have the token. |
+| DELETE | pledges/pledge_ID | Delete a pledge | pledge object | 201 | User must be logged in or have the token. |
 <br /> 
-| POST | users/ | Create a new user | user object | 201 | User must be logged in or have the token. |
+| POST | users/ | Create a new user | user object | 201 | N/A
 <br /> 
 
