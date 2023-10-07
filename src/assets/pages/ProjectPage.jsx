@@ -89,7 +89,7 @@ function ProjectPage() {
             </section>
             </>
             ) : (
-            <p>Please Log In</p>
+            <p className="error-permission">Please Log In</p>
             )} 
     </div>
     );
