@@ -9,14 +9,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(127, 56, 209, 0.741);
+    background-color:#9370DB;
+    height: 70px;
     color:white;
 
 }
 
 .home,
-.signup,
 .login,
+.logout,
 .pledge,
 .project{
     text-decoration: none;
@@ -31,12 +32,20 @@
 .nav-links{
     display: flex;
     list-style: none;
+    justify-content: center;
+    width:70%
    
 
 }
 
 .mobile-menu-icon{
     display:none;
+}
+
+.login{
+    border: 1px solid yellow;
+    border-radius: 5px;
+
 }
 
 @media screen and (max-width:780px){
@@ -50,7 +59,7 @@
         position: relative;
         display: block;
         list-style: none;
-        background-color: #9947a8;
+        background-color:#9370DB;
         left: 0;
         transition: all 0.5s ease-out;
         width: 100%;
@@ -58,8 +67,8 @@
     }
 
     .home,
-    .signup,
     .login,
+    .logout,
     .pledge,
     .project{
         color:white;
@@ -70,16 +79,21 @@
     }
 
 
+    .login{
+        border: none;
+    }
+
     .mobile-menu-icon{
         display:block;
         position: absolute;
         font-size: 30px;
         color:white;
-        background-color:rgba(127, 56, 209, 0.741);
+        background-color:#9370DB;
         border:none;
         top:15px;
         right:25px;
     }
+
 
 
 }
